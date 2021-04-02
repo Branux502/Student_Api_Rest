@@ -12,5 +12,6 @@ public interface StudentRepository extends JpaRepository<Student,Long > {
     //this will be convert to a sql such as (SELECT * FROM  student where email = ?)
     //@Query("SELECT s FROM Student s WHERE s.email = ?1")
     //Optional<Student> findStudentbyEmail(String email);
+    Optional<Student> findStudentByEmail(String email);
 
 }

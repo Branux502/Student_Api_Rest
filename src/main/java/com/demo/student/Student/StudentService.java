@@ -28,15 +28,26 @@ public class StudentService {
     public void addNewStudent(Student student) {
 
         //Optional<Student> studentByEmail=  repository.findStudentbyEmail(student.getEmail()).isPresent(repository.save(student));
-      /*  Optional<Student> studentByEmail=  repository.findStudentbyEmail(student.getEmail());
+       Optional<Student> studentByEmail=  repository.findStudentByEmail(student.getEmail());
         if(studentByEmail.isPresent()){
             throw new IllegalStateException("Email taken");
         }else{
             repository.save(student);
         }
-
-       */
-
         System.out.println(student);
+    }
+
+
+    public void deleteStudent(Long studentId) {
+
+        //boolean b = repository.existsById(studentId);
+        if(repository.existsById(studentId)){
+            repository.deleteById(studentId);
+        }else{
+            throw new IllegalStateException("student with id " + studentId + " does not exist");
+        }
+
+
+
     }
 }
