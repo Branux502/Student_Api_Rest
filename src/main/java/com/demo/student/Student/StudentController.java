@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 import java.util.List;
 
+
 @RestController
 @RequestMapping(path = "api/v1/student")
+@CrossOrigin(origins = {"http://localhost:3000"}, methods = {RequestMethod.GET, RequestMethod.HEAD, RequestMethod.PATCH, RequestMethod.POST, RequestMethod.PUT})
 public class StudentController {
 
     private final StudentService studentService;
