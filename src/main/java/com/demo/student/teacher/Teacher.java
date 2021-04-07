@@ -3,15 +3,17 @@ package com.demo.student.teacher;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Period;
 
 
 @Entity
-@Table(name = "teacher")
+@Table(name = "tb_teacher")
 public class Teacher {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Long cui;
     private String name;
     private String email;
     private LocalDate dob;
@@ -21,20 +23,21 @@ public class Teacher {
     public Teacher() {
     }
 
-    public Teacher(String name, String email, LocalDate dob) {
-        this.name = name;
-        this.email = email;
-        this.dob = dob;
-    }
-
-    public Teacher(Long id, String name, String email, LocalDate  dob) {
+    public Teacher(Long id, Long cui, String name, String email, LocalDate dob, int age) {
         this.id = id;
+        this.cui = cui;
+        this.name = name;
+        this.email = email;
+        this.dob = dob;
+        this.age = age;
+    }
+
+    public Teacher(Long CUI, String name, String email, LocalDate dob) {
+        this.cui = CUI;
         this.name = name;
         this.email = email;
         this.dob = dob;
     }
-
-
 
     public Long getId() {
         return id;
@@ -42,6 +45,14 @@ public class Teacher {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getCui() {
+        return cui;
+    }
+
+    public void setCui(Long cui) {
+        this.cui = cui;
     }
 
     public String getName() {
@@ -68,14 +79,11 @@ public class Teacher {
         this.dob = dob;
     }
 
-    @Override
-    public String toString() {
-        return "Teacher{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", dob=" + dob +
-                ", age=" + age +
-                '}';
+    public int getAge() {
+        return Period.between(this.dob,LocalDate.now()).getYears();
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

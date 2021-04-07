@@ -8,9 +8,9 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
 
-@Configuration
+//@Configuration
 public class StudentConfig {
-    @Bean
+  /*  @Bean
     CommandLineRunner commandLineRunner(StudentRepository repository){
         return args -> {
          Student maria = new Student(
@@ -26,5 +26,5 @@ public class StudentConfig {
             );
             repository.saveAll(List.of(maria,pepito));
         };
-    }
+    }*/
 }
