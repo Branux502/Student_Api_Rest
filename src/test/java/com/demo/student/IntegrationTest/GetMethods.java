@@ -16,12 +16,12 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 import java.util.Optional;
-
+/*
 @SpringBootConfiguration(class)
 @AutoConfigureMockMvc
-@WebMvcTest(StudentController.class)
+@WebMvcTest(StudentController.class)*/
 public class GetMethods {
-
+/*
     @Autowired
     private MockMvc mvc;
 
@@ -39,5 +39,5 @@ public class GetMethods {
         System.out.println(studentList);
     }
 
-
+*/
 }
